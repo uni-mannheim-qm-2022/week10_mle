@@ -4,7 +4,7 @@ author:
   - "Oliver Rittmann"
   - "Domantas Undzėnas"
   - "Lion Behrens"
-date: "November 10 | 11 | 12, 2022"
+date: "November 09 | 10 | 11, 2022"
 output:
   html_document:
     toc: yes
@@ -100,7 +100,7 @@ Let's say we have a biased coin, but we do not know the amount of the bias. The 
 
 We start by tossing the coin ten times and get **3 tails** and **7 heads**. How do we use this data to learn about the bias of the coin?
 
-We are now in a situation where we have empirical data (3 tails, 7 heads), but the probability $P(Head)$ is unknown. This is where the concept of **likelihood** comes in. To learn about $p$, we ask may start by asking: *How likely is it that we observed 3 tails and 7 heads if p was $p = 0.6$?*
+We are now in a situation where we have empirical data (3 tails, 7 heads), but the probability $P(Head)$ is unknown. This is where the concept of **likelihood** comes in. To learn about $p$, we may start by asking: *How likely is it that we observed 3 tails and 7 heads if p was $p = 0.6$?*
 
 The good news is that we know how to calculate this since week 2. If $p=0.6$, then the PMF of the binomial distribution tells us:
 
@@ -123,7 +123,7 @@ lik_1
 
 If $P(Head)$ was 0.6, then the probability of observing 7 heads out of 10 coin tosses is 0.22. 
 
-But remember that p is unknown, so it could also be the case that the true probability of $p$ is 0.55 or 0.65 or any other value between 0 and 1. Let's see what happens if we assume that $p = 0.65$:
+But remember that $p$ is unknown, so it could also be the case that the true probability of $p$ is 0.55 or 0.65 or any other value between 0 and 1. Let's see what happens if we assume that $p = 0.65$:
 
 ```{r mle-2,  class.source = 'fold-show'}
 lik_2 <- factorial(10) / (factorial(10 - 7) * factorial(7)) * 0.65 ^ 7 * (1 - 0.65) ^ (10 - 7)
